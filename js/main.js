@@ -6,12 +6,16 @@
 // ============================================
 // Preloader
 // ============================================
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.querySelector('.preloader');
     if (preloader) {
         setTimeout(() => {
-            preloader.classList.add('hidden');
-        }, 500);
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 800);
     }
     initAnimations();
 });
