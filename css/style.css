@@ -306,8 +306,6 @@ img {
     font-weight: 700;
     letter-spacing: 4px;
     margin-bottom: 20px;
-    opacity: 0;
-    transform: translateY(30px);
 }
 
 .hero-title {
@@ -320,8 +318,6 @@ img {
 
 .hero-title .line {
     display: block;
-    opacity: 0;
-    transform: translateY(50px);
 }
 
 .hero-desc {
@@ -329,16 +325,12 @@ img {
     font-size: 18px;
     line-height: 1.8;
     margin-bottom: 40px;
-    opacity: 0;
-    transform: translateY(30px);
 }
 
 .hero-btns {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    opacity: 0;
-    transform: translateY(30px);
 }
 
 .hero-stats {
@@ -384,8 +376,6 @@ img {
     color: var(--white);
     font-size: 12px;
     opacity: 0.7;
-    animation: fadeInUp 1s ease-out 2s forwards;
-    opacity: 0;
 }
 
 .mouse {
@@ -1872,35 +1862,151 @@ section {
 }
 
 /* ============================================
-   Animation Classes (for GSAP)
+   CSS Animation Classes
    ============================================ */
-.fade-in {
+
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    z-index: 9999;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+/* Reveal Animation */
+.reveal-element {
     opacity: 0;
     transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.fade-in-left {
-    opacity: 0;
-    transform: translateX(-50px);
+.reveal-element.revealed {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.fade-in-right {
-    opacity: 0;
-    transform: translateX(50px);
+/* Staggered reveal for grid items */
+.features-grid .reveal-element:nth-child(1) { transition-delay: 0s; }
+.features-grid .reveal-element:nth-child(2) { transition-delay: 0.1s; }
+.features-grid .reveal-element:nth-child(3) { transition-delay: 0.2s; }
+.features-grid .reveal-element:nth-child(4) { transition-delay: 0.3s; }
+
+.programs-grid .reveal-element:nth-child(1) { transition-delay: 0s; }
+.programs-grid .reveal-element:nth-child(2) { transition-delay: 0.1s; }
+.programs-grid .reveal-element:nth-child(3) { transition-delay: 0.15s; }
+.programs-grid .reveal-element:nth-child(4) { transition-delay: 0.2s; }
+.programs-grid .reveal-element:nth-child(5) { transition-delay: 0.25s; }
+.programs-grid .reveal-element:nth-child(6) { transition-delay: 0.3s; }
+.programs-grid .reveal-element:nth-child(7) { transition-delay: 0.35s; }
+.programs-grid .reveal-element:nth-child(8) { transition-delay: 0.4s; }
+.programs-grid .reveal-element:nth-child(9) { transition-delay: 0.45s; }
+
+.instructors-slider .reveal-element:nth-child(1),
+.instructors-grid .reveal-element:nth-child(1) { transition-delay: 0s; }
+.instructors-slider .reveal-element:nth-child(2),
+.instructors-grid .reveal-element:nth-child(2) { transition-delay: 0.1s; }
+.instructors-slider .reveal-element:nth-child(3),
+.instructors-grid .reveal-element:nth-child(3) { transition-delay: 0.2s; }
+.instructors-slider .reveal-element:nth-child(4),
+.instructors-grid .reveal-element:nth-child(4) { transition-delay: 0.3s; }
+.instructors-slider .reveal-element:nth-child(5),
+.instructors-grid .reveal-element:nth-child(5) { transition-delay: 0.4s; }
+.instructors-slider .reveal-element:nth-child(6),
+.instructors-grid .reveal-element:nth-child(6) { transition-delay: 0.5s; }
+
+.testimonials-grid .reveal-element:nth-child(1) { transition-delay: 0s; }
+.testimonials-grid .reveal-element:nth-child(2) { transition-delay: 0.15s; }
+.testimonials-grid .reveal-element:nth-child(3) { transition-delay: 0.3s; }
+
+.gallery-grid .reveal-element:nth-child(1),
+.gallery-full-grid .reveal-element:nth-child(1) { transition-delay: 0s; }
+.gallery-grid .reveal-element:nth-child(2),
+.gallery-full-grid .reveal-element:nth-child(2) { transition-delay: 0.05s; }
+.gallery-grid .reveal-element:nth-child(3),
+.gallery-full-grid .reveal-element:nth-child(3) { transition-delay: 0.1s; }
+.gallery-grid .reveal-element:nth-child(4),
+.gallery-full-grid .reveal-element:nth-child(4) { transition-delay: 0.15s; }
+.gallery-grid .reveal-element:nth-child(5),
+.gallery-full-grid .reveal-element:nth-child(5) { transition-delay: 0.2s; }
+.gallery-grid .reveal-element:nth-child(6),
+.gallery-full-grid .reveal-element:nth-child(6) { transition-delay: 0.25s; }
+.gallery-grid .reveal-element:nth-child(7),
+.gallery-full-grid .reveal-element:nth-child(7) { transition-delay: 0.3s; }
+.gallery-grid .reveal-element:nth-child(8),
+.gallery-full-grid .reveal-element:nth-child(8) { transition-delay: 0.35s; }
+.gallery-grid .reveal-element:nth-child(9),
+.gallery-full-grid .reveal-element:nth-child(9) { transition-delay: 0.4s; }
+.gallery-grid .reveal-element:nth-child(10),
+.gallery-full-grid .reveal-element:nth-child(10) { transition-delay: 0.45s; }
+.gallery-grid .reveal-element:nth-child(11),
+.gallery-full-grid .reveal-element:nth-child(11) { transition-delay: 0.5s; }
+.gallery-grid .reveal-element:nth-child(12),
+.gallery-full-grid .reveal-element:nth-child(12) { transition-delay: 0.55s; }
+
+/* Hero Section - Always visible with entrance animation */
+.hero-subtitle,
+.hero-title .line,
+.hero-desc,
+.hero-btns {
+    opacity: 1;
+    transform: none;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.scale-in {
-    opacity: 0;
-    transform: scale(0.8);
+.hero-subtitle { animation-delay: 0.2s; }
+.hero-title .line:nth-child(1) { animation-delay: 0.4s; }
+.hero-title .line:nth-child(2) { animation-delay: 0.6s; }
+.hero-desc { animation-delay: 0.8s; }
+.hero-btns { animation-delay: 1s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.split-text .char {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(50px);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-/* Smooth Scrollbar Custom */
-.smooth-scroll {
-    overflow: hidden;
+/* Form focus animation */
+.form-group.focused input,
+.form-group.focused select,
+.form-group.focused textarea {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+/* Hover lift effect for cards */
+.feature-card,
+.program-card,
+.program-card-full,
+.instructor-card,
+.instructor-card-full,
+.testimonial-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover,
+.program-card:hover,
+.program-card-full:hover,
+.instructor-card:hover,
+.instructor-card-full:hover,
+.testimonial-card:hover {
+    transform: translateY(-10px);
 }
