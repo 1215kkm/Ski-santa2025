@@ -274,7 +274,15 @@
                 <div class="booking-form-wrapper">
                     <h3>예약 정보 입력</h3>
 
-                    <form id="booking-form">
+                    <form id="booking-form" action="https://formsubmit.co/1215kkm@naver.com" method="POST">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="[TOP SKI] 새로운 레슨 예약 신청">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" id="form-next-url">
+                        <input type="hidden" name="프로그램" id="hidden-program">
+                        <input type="hidden" name="희망시간" id="hidden-time">
+
                         <!-- Program Selection -->
                         <div class="form-group">
                             <label>프로그램 선택 *</label>
@@ -514,6 +522,9 @@
         let selectedTime = null;
         let selectedPrice = 0;
 
+        // Set redirect URL for after form submission
+        document.getElementById('form-next-url').value = window.location.origin + window.location.pathname.replace('booking.html', 'booking-complete.html');
+
         // Program selection
         programCards.forEach(card => {
             card.addEventListener('click', () => {
@@ -521,6 +532,7 @@
                 card.classList.add('selected');
                 selectedProgram = card.querySelector('h4').textContent;
                 selectedPrice = parseInt(card.dataset.price);
+                document.getElementById('hidden-program').value = selectedProgram;
                 updateSummary();
             });
         });
@@ -532,6 +544,7 @@
                     timeSlots.forEach(s => s.classList.remove('selected'));
                     slot.classList.add('selected');
                     selectedTime = slot.dataset.time;
+                    document.getElementById('hidden-time').value = selectedTime;
                     updateSummary();
                 });
             }
@@ -560,45 +573,19 @@
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('lesson-date').setAttribute('min', today);
 
-        // Form submission
+        // Form validation before submit
         document.getElementById('booking-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
             if (!selectedProgram) {
+                e.preventDefault();
                 alert('프로그램을 선택해주세요.');
                 return;
             }
             if (!selectedTime) {
+                e.preventDefault();
                 alert('희망 시간대를 선택해주세요.');
                 return;
             }
-
-            // Animation with CSS
-            const formWrapper = document.querySelector('.booking-form-wrapper');
-            formWrapper.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-            formWrapper.style.opacity = '0';
-            formWrapper.style.transform = 'translateY(-20px)';
-
-            setTimeout(() => {
-                formWrapper.innerHTML = `
-                    <div style="text-align: center; padding: 60px 20px;">
-                        <div style="font-size: 80px; margin-bottom: 30px;">🎿</div>
-                        <h3 style="font-size: 28px; margin-bottom: 15px; color: var(--dark);">예약 신청이 완료되었습니다!</h3>
-                        <p style="color: var(--gray); margin-bottom: 30px; line-height: 1.8;">
-                            입력하신 연락처로 확정 안내 문자가 발송됩니다.<br>
-                            문의사항이 있으시면 010-1234-5678로 연락주세요.
-                        </p>
-                        <a href="index.html" class="btn btn-primary">
-                            <span>홈으로 돌아가기</span>
-                        </a>
-                    </div>
-                `;
-                formWrapper.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    formWrapper.style.opacity = '1';
-                    formWrapper.style.transform = 'translateY(0)';
-                }, 50);
-            }, 300);
+            // Form will submit to formsubmit.co
         });
     </script>
 </body>
