@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그램 - TOP SKI SCHOOLS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="ski-icon">⛷️</div>
+            <span>LOADING</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">TOP<span class="accent">SKI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">홈</a></li>
+                <li><a href="programs.html" class="nav-link active">프로그램</a></li>
+                <li><a href="instructors.html" class="nav-link">강사진</a></li>
+                <li><a href="gallery.html" class="nav-link">갤러리</a></li>
+                <li><a href="booking.html" class="nav-link">예약</a></li>
+                <li><a href="contact.html" class="nav-link">문의</a></li>
+            </ul>
+            <a href="booking.html" class="nav-cta">지금 예약</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <div class="container">
+                <span class="section-tag">OUR PROGRAMS</span>
+                <h1 class="section-title">강습 프로그램</h1>
+                <p>초보자부터 상급자까지, 당신의 레벨에 맞는 최적의 프로그램을 찾아보세요</p>
+            </div>
+        </div>
+        <div class="diagonal-bottom"></div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="container">
+            <!-- Filter Buttons -->
+            <div class="programs-filter">
+                <button class="filter-btn active">전체</button>
+                <button class="filter-btn">스키</button>
+                <button class="filter-btn">스노우보드</button>
+                <button class="filter-btn">초급</button>
+                <button class="filter-btn">중급</button>
+                <button class="filter-btn">상급</button>
+            </div>
+
+            <!-- Programs Grid -->
+            <div class="programs-grid">
+                <!-- Program 1 -->
+                <div class="program-card-full" data-category="ski beginner">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=600" alt="스키 입문반">
+                        <div class="program-overlay">
+                            <span class="program-tag">BEST SELLER</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <span class="program-level beginner">초급</span>
+                        <h3>스키 입문반</h3>
+                        <p>스키를 처음 접하는 분들을 위한 기초 과정입니다. 장비 사용법부터 기본 자세, 안전하게 멈추는 방법까지 배웁니다.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> 기본 장비 사용법</li>
+                            <li><i class="fas fa-check"></i> 플루그 자세 마스터</li>
+                            <li><i class="fas fa-check"></i> 안전하게 넘어지고 일어서기</li>
+                            <li><i class="fas fa-check"></i> 기초 턴 연습</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 2시간</span>
+                            <span><i class="fas fa-users"></i> 1:1 ~ 1:4</span>
+                        </div>
+                        <div class="program-price">
+                            <span class="price">80,000</span>
+                            <span>원~</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary btn-small">
+                            <span>예약하기</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="program-card-full" data-category="ski intermediate">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1565992441121-4367c2967103?w=600" alt="스키 중급반">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-level intermediate">중급</span>
+                        <h3>스키 중급반</h3>
+                        <p>기초를 마스터한 분들을 위한 중급 과정입니다. 패러렐 턴과 다양한 슬로프 적응 훈련을 진행합니다.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> 패러렐 턴 기초</li>
+                            <li><i class="fas fa-check"></i> 중급 슬로프 적응</li>
+                            <li><i class="fas fa-check"></i> 속도 컨트롤</li>
+                            <li><i class="fas fa-check"></i> 다양한 설질 대응</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 2시간</span>
+                            <span><i class="fas fa-users"></i> 1:1 ~ 1:3</span>
+                        </div>
+                        <div class="program-price">
+                            <span class="price">100,000</span>
+                            <span>원~</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary btn-small">
+                            <span>예약하기</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="program-card-full" data-category="ski advanced">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=600" alt="카빙 마스터">
+                        <div class="program-overlay">
+                            <span class="program-tag">POPULAR</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <span class="program-level advanced">상급</span>
+                        <h3>카빙 마스터</h3>
+                        <p>정교한 카빙 턴을 마스터하고 싶은 상급자를 위한 과정입니다. 영상 분석과 함께 세밀한 기술 교정을 진행합니다.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> 정밀 카빙 턴</li>
+                            <li><i class="fas fa-check"></i> 영상 분석 피드백</li>
+                            <li><i class="fas fa-check"></i> 고급 기술 교정</li>
+                            <li><i class="fas fa-check"></i> 상급 슬로프 공략</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 2시간</span>
+                            <span><i class="fas fa-users"></i> 1:1 ~ 1:2</span>
+                        </div>
+                        <div class="program-price">
+                            <span class="price">150,000</span>
+                            <span>원~</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary btn-small">
+                            <span>예약하기</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 4 -->
+                <div class="program-card-full" data-category="snowboard beginner">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1522056615691-da7b8106c665?w=600" alt="스노우보드 입문반">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-level beginner">초급</span>
+                        <h3>스노우보드 입문반</h3>
+                        <p>보드의 세계에 첫 발을 내딛는 분들을 위한 기초 과정입니다. 균형 잡기부터 기본 슬라이딩까지 배웁니다.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> 바인딩 & 장비 사용법</li>
+                            <li><i class="fas fa-check"></i> 균형 잡기 연습</li>
+                            <li><i class="fas fa-check"></i> 사이드 슬립</li>
+                            <li><i class="fas fa-check"></i> 기초 턴 입문</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 2시간</span>
+                            <span><i class="fas fa-users"></i> 1:1 ~ 1:4</span>
+                        </div>
+                        <div class="program-price">
+                            <span class="price">80,000</span>
+                            <span>원~</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary btn-small">
+                            <span>예약하기</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 5 -->
+                <div class="program-card-full" data-category="snowboard intermediate">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1478700485868-972b69dc3fc4?w=600" alt="스노우보드 중급반">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-level intermediate">중급</span>
+                        <h3>스노우보드 중급반</h3>
+                        <p>기본 턴을 익힌 분들을 위한 중급 과정입니다. 연결 턴과 속도 조절 기술을 마스터합니다.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> 연결 턴 마스터</li>
+                            <li><i class="fas fa-check"></i> 중급 슬로프 적응</li>
+                            <li><i class="fas fa-check"></i> 스위치 라이딩 기초</li>
+                            <li><i class="fas fa-check"></i> 속도 & 방향 컨트롤</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 2시간</span>
+                            <span><i class="fas fa-users"></i> 1:1 ~ 1:3</span>
+                        </div>
+                        <div class="program-price">
+                            <span class="price">100,000</span>
+                            <span>원~</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary btn-small">
+                            <span>예약하기</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 6 -->
+                <div class="program-card-full" data-category="snowboard advanced">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600" alt="프리스타일 보드">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-level advanced">상급</span>
+                        <h3>프리스타일 보드</h3>
+                        <p>트릭과 점프를 배우고 싶은 상급자를 위한 과정입니다. 파크 라이딩의 기초부터 고급 트릭까지 진행합니다.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> 올리/놀리 기본기</li>
+                            <li><i class="fas fa-check"></i> 박스 & 레일 기초</li>
+                            <li><i class="fas fa-check"></i> 점프 & 착지 기술</li>
+                            <li><i class="fas fa-check"></i> 기본 그랩 트릭</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 2시간</span>
+                            <span><i class="fas fa-users"></i> 1:1 ~ 1:2</span>
+                        </div>
+                        <div class="program-price">
+                            <span class="price">150,000</span>
+                            <span>원~</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary btn-small">
+                            <span>예약하기</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 7 -->
+                <div class="program-card-full" data-category="ski kids">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?w=600" alt="키즈 스키">
+                        <div class="program-overlay">
+                            <span class="program-tag">FAMILY</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <span class="program-level beginner">키즈</span>
+                        <h3>키즈 스키 레슨</h3>
+                        <p>5세~12세 어린이를 위한 맞춤 레슨입니다. 재미있는 게임과 함께 안전하게 스키를 배웁니다.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> 연령별 맞춤 교육</li>
+                            <li><i class="fas fa-check"></i> 게임형 학습법</li>
+                            <li><i class="fas fa-check"></i> 안전 중심 커리큘럼</li>
+                            <li><i class="fas fa-check"></i> 부모 동반 가능</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 1.5시간</span>
+                            <span><i class="fas fa-users"></i> 1:1 ~ 1:3</span>
+                        </div>
+                        <div class="program-price">
+                            <span class="price">70,000</span>
+                            <span>원~</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary btn-small">
+                            <span>예약하기</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 8 -->
+                <div class="program-card-full" data-category="package">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1520443240718-fce21901db79?w=600" alt="가족 패키지">
+                    </div>
+                    <div class="program-content">
+                        <span class="program-level intermediate">패키지</span>
+                        <h3>가족 패키지</h3>
+                        <p>온 가족이 함께 즐기는 스키 레슨입니다. 레벨별로 분리 수업 후 가족 함께 슬로프를 즐깁니다.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> 가족 맞춤 커리큘럼</li>
+                            <li><i class="fas fa-check"></i> 레벨별 분리 수업</li>
+                            <li><i class="fas fa-check"></i> 가족 합동 시간</li>
+                            <li><i class="fas fa-check"></i> 기념 사진 촬영</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 3시간</span>
+                            <span><i class="fas fa-users"></i> 가족 단위</span>
+                        </div>
+                        <div class="program-price">
+                            <span class="price">250,000</span>
+                            <span>원~</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary btn-small">
+                            <span>예약하기</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 9 -->
+                <div class="program-card-full" data-category="package">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=600" alt="시즌권 패키지">
+                        <div class="program-overlay">
+                            <span class="program-tag">BEST VALUE</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <span class="program-level advanced">시즌</span>
+                        <h3>시즌 정기권</h3>
+                        <p>한 시즌 동안 체계적으로 실력을 키우고 싶은 분들을 위한 정기 레슨 패키지입니다.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> 주 1회 정기 레슨</li>
+                            <li><i class="fas fa-check"></i> 개인 성장 로드맵</li>
+                            <li><i class="fas fa-check"></i> 월간 영상 분석</li>
+                            <li><i class="fas fa-check"></i> 장비 무료 대여</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 시즌권</span>
+                            <span><i class="fas fa-users"></i> 1:1</span>
+                        </div>
+                        <div class="program-price">
+                            <span class="price">1,500,000</span>
+                            <span>원~</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary btn-small">
+                            <span>예약하기</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="parallax-banner">
+        <div class="parallax-content">
+            <h2>어떤 프로그램이 맞을지 고민되시나요?</h2>
+            <p>무료 상담을 통해 <strong>나에게 맞는 프로그램</strong>을 추천받으세요</p>
+            <a href="booking.html" class="btn btn-white btn-large">
+                <span>무료 상담 신청</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="diagonal-top"></div>
+        <div class="diagonal-bottom"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-text">TOP<span class="accent">SKI</span></span>
+                    </a>
+                    <p>최고의 강사진과 함께하는 프리미엄 스키 & 스노우보드 강습. 초보자부터 상급자까지, 모든 레벨에 맞는 맞춤 교육을 제공합니다.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>바로가기</h4>
+                    <ul>
+                        <li><a href="programs.html">프로그램</a></li>
+                        <li><a href="instructors.html">강사진</a></li>
+                        <li><a href="gallery.html">갤러리</a></li>
+                        <li><a href="booking.html">예약</a></li>
+                        <li><a href="contact.html">문의</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>프로그램</h4>
+                    <ul>
+                        <li><a href="programs.html">스키 입문반</a></li>
+                        <li><a href="programs.html">스키 중급반</a></li>
+                        <li><a href="programs.html">스노우보드 기초</a></li>
+                        <li><a href="programs.html">카빙 마스터</a></li>
+                        <li><a href="programs.html">키즈 레슨</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>연락처</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>010-1234-5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@topskischools.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>강원도 평창군 대관령면<br>스키장길 123</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>매일 08:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TOP SKI SCHOOLS. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">이용약관</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
