@@ -14,22 +14,26 @@
             background: var(--light);
         }
         .reviews-overview-container {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 60px;
-            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        /* Rating Summary */
+        /* Rating Summary - Now at top */
         .rating-summary {
             background: var(--white);
-            padding: 40px;
+            padding: 40px 50px;
             border-radius: var(--radius-lg);
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .rating-score {
             text-align: center;
-            position: sticky;
-            top: 120px;
+            min-width: 140px;
         }
         .rating-big {
             font-size: 72px;
@@ -51,36 +55,35 @@
         .rating-count {
             font-size: 14px;
             color: var(--gray);
-            margin-bottom: 30px;
         }
 
         /* Rating Distribution */
         .rating-distribution {
-            margin-top: 20px;
+            flex: 1;
         }
         .rating-bar {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .rating-bar-label {
-            width: 50px;
+            width: 40px;
             font-size: 14px;
             color: var(--gray);
             text-align: left;
         }
         .rating-bar-track {
             flex: 1;
-            height: 8px;
+            height: 10px;
             background: var(--gray-light);
-            border-radius: 4px;
+            border-radius: 5px;
             overflow: hidden;
         }
         .rating-bar-fill {
             height: 100%;
             background: var(--gradient-primary);
-            border-radius: 4px;
+            border-radius: 5px;
             transition: width 0.5s ease;
         }
         .rating-bar-percent {
@@ -95,6 +98,14 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .rating-summary {
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 30px;
+            }
         }
         .review-card-new {
             background: var(--white);
@@ -228,7 +239,7 @@
 
     <!-- Sub Hero Section -->
     <section class="sub-hero">
-        <div class="sub-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1551524559-8af4e6624178?w=1600');"></div>
+        <div class="sub-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1600');"></div>
         <div class="sub-hero-content">
             <h1>수강생 후기</h1>
             <p>실제 수강생들의 생생한 후기를 확인해보세요</p>
@@ -242,16 +253,17 @@
             <div class="reviews-overview-container">
                 <!-- Rating Summary -->
                 <div class="rating-summary">
-                    <div class="rating-big">4.9</div>
-                    <div class="rating-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <div class="rating-score">
+                        <div class="rating-big">4.9</div>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-count">128개의 후기</div>
                     </div>
-                    <div class="rating-count">128개의 후기</div>
-
                     <div class="rating-distribution">
                         <div class="rating-bar">
                             <span class="rating-bar-label">5점</span>
@@ -297,7 +309,7 @@
                     <div class="review-card-new">
                         <div class="review-card-header">
                             <div class="review-user">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="정미영" class="review-avatar-new">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100" alt="정미영" class="review-avatar-new">
                                 <div class="review-user-info">
                                     <h4>정미영</h4>
                                     <span class="review-date">2024.12.05</span>
@@ -329,7 +341,7 @@
                     <div class="review-card-new">
                         <div class="review-card-header">
                             <div class="review-user">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="김태호" class="review-avatar-new">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100" alt="김태호" class="review-avatar-new">
                                 <div class="review-user-info">
                                     <h4>김태호</h4>
                                     <span class="review-date">2024.12.02</span>
@@ -361,7 +373,7 @@
                     <div class="review-card-new">
                         <div class="review-card-header">
                             <div class="review-user">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="이준혁" class="review-avatar-new">
+                                <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=100" alt="이준혁" class="review-avatar-new">
                                 <div class="review-user-info">
                                     <h4>이준혁</h4>
                                     <span class="review-date">2024.11.28</span>
@@ -393,7 +405,7 @@
                     <div class="review-card-new">
                         <div class="review-card-header">
                             <div class="review-user">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="박소연" class="review-avatar-new">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="박소연" class="review-avatar-new">
                                 <div class="review-user-info">
                                     <h4>박소연</h4>
                                     <span class="review-date">2024.11.25</span>
@@ -425,7 +437,7 @@
                     <div class="review-card-new">
                         <div class="review-card-header">
                             <div class="review-user">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" alt="최민준" class="review-avatar-new">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100" alt="최민준" class="review-avatar-new">
                                 <div class="review-user-info">
                                     <h4>최민준</h4>
                                     <span class="review-date">2024.11.20</span>
@@ -457,7 +469,7 @@
                     <div class="review-card-new">
                         <div class="review-card-header">
                             <div class="review-user">
-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="윤서영" class="review-avatar-new">
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100" alt="윤서영" class="review-avatar-new">
                                 <div class="review-user-info">
                                     <h4>윤서영</h4>
                                     <span class="review-date">2024.11.05</span>
