@@ -3,28 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>수강생 후기 - TOP SKI SCHOOLS</title>
+    <title>수강생 후기 - 지산리조트 스키강습 골든스키스쿨</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reviews Page Redesign */
+        .reviews-overview {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        .reviews-overview-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Rating Summary */
+        .rating-summary {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            position: sticky;
+            top: 120px;
+        }
+        .rating-big {
+            font-size: 72px;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .rating-stars i {
+            font-size: 24px;
+            color: #FFD700;
+        }
+        .rating-count {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        /* Rating Distribution */
+        .rating-distribution {
+            margin-top: 20px;
+        }
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .rating-bar-label {
+            width: 50px;
+            font-size: 14px;
+            color: var(--gray);
+            text-align: left;
+        }
+        .rating-bar-track {
+            flex: 1;
+            height: 8px;
+            background: var(--gray-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .rating-bar-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        .rating-bar-percent {
+            width: 40px;
+            font-size: 13px;
+            color: var(--gray);
+            text-align: right;
+        }
+
+        /* Reviews List */
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .review-card-new {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+        .review-card-new:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .review-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .review-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .review-avatar-new {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .review-user-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        .review-user-info .review-date {
+            font-size: 13px;
+            color: var(--gray);
+        }
+        .review-rating-new {
+            display: flex;
+            gap: 3px;
+        }
+        .review-rating-new i {
+            font-size: 14px;
+            color: #FFD700;
+        }
+        .review-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .review-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(255, 59, 48, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .review-text-new {
+            color: var(--dark);
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+        .review-helpful {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--gray-light);
+        }
+        .helpful-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: 1px solid var(--gray-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .helpful-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .helpful-btn i {
+            font-size: 14px;
+        }
+
+        @media (max-width: 968px) {
+            .reviews-overview-container {
+                grid-template-columns: 1fr;
+            }
+            .rating-summary {
+                position: static;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="loader">
-            <div class="ski-icon">⛷️</div>
-            <span>LOADING</span>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar scrolled">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <span class="logo-text">TOP<span class="accent">SKI</span></span>
+                <span class="logo-text">골든<span class="accent">스키</span>스쿨</span>
             </a>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">홈</a></li>
                 <li><a href="programs.html" class="nav-link">강습 상품</a></li>
                 <li><a href="gallery.html" class="nav-link">강습 갤러리</a></li>
                 <li><a href="booking.html" class="nav-link">예약하기</a></li>
@@ -33,7 +217,7 @@
                 <li><a href="faq.html" class="nav-link">자주묻는질문</a></li>
                 <li><a href="notice.html" class="nav-link">공지</a></li>
             </ul>
-            <a href="booking.html" class="nav-cta">지금 예약</a>
+            <a href="tel:010-1234-5678" class="nav-cta"><i class="fas fa-phone"></i> 전화로 예약하기</a>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -53,200 +237,262 @@
     </section>
 
     <!-- Reviews Section -->
-    <section class="reviews-section">
+    <section class="reviews-overview">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">REVIEWS</span>
-                <h2 class="section-title">생생한 수강 후기</h2>
-            </div>
-            <div class="reviews-grid">
-                <!-- Review 1 -->
-                <div class="review-card reveal-element">
-                    <div class="review-header">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="정미영" class="review-avatar">
-                        <div class="review-info">
-                            <h4>정미영</h4>
-                            <span>스키 입문반 수강</span>
+            <div class="reviews-overview-container">
+                <!-- Rating Summary -->
+                <div class="rating-summary">
+                    <div class="rating-big">4.9</div>
+                    <div class="rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-count">128개의 후기</div>
+
+                    <div class="rating-distribution">
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">5점</span>
+                            <div class="rating-bar-track">
+                                <div class="rating-bar-fill" style="width: 85%;"></div>
+                            </div>
+                            <span class="rating-bar-percent">85%</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">4점</span>
+                            <div class="rating-bar-track">
+                                <div class="rating-bar-fill" style="width: 12%;"></div>
+                            </div>
+                            <span class="rating-bar-percent">12%</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">3점</span>
+                            <div class="rating-bar-track">
+                                <div class="rating-bar-fill" style="width: 3%;"></div>
+                            </div>
+                            <span class="rating-bar-percent">3%</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">2점</span>
+                            <div class="rating-bar-track">
+                                <div class="rating-bar-fill" style="width: 0%;"></div>
+                            </div>
+                            <span class="rating-bar-percent">0%</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">1점</span>
+                            <div class="rating-bar-track">
+                                <div class="rating-bar-fill" style="width: 0%;"></div>
+                            </div>
+                            <span class="rating-bar-percent">0%</span>
                         </div>
                     </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"완전 초보였는데 3일 만에 중급 슬로프를 탈 수 있게 됐어요! 강사님이 정말 친절하고 체계적으로 알려주셔서 빠르게 실력이 늘었습니다. 다음 시즌에도 꼭 다시 올게요!"</p>
-                    <div class="review-date">2024.12.05</div>
                 </div>
 
-                <!-- Review 2 -->
-                <div class="review-card reveal-element">
-                    <div class="review-header">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="김태호" class="review-avatar">
-                        <div class="review-info">
-                            <h4>김태호</h4>
-                            <span>가족 레슨 수강</span>
+                <!-- Reviews List -->
+                <div class="reviews-list">
+                    <!-- Review 1 -->
+                    <div class="review-card-new">
+                        <div class="review-card-header">
+                            <div class="review-user">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="정미영" class="review-avatar-new">
+                                <div class="review-user-info">
+                                    <h4>정미영</h4>
+                                    <span class="review-date">2024.12.05</span>
+                                </div>
+                            </div>
+                            <div class="review-rating-new">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-tags">
+                            <span class="review-tag">프리미엄 1:1</span>
+                            <span class="review-tag">스키 입문반</span>
+                        </div>
+                        <p class="review-text-new">완전 초보였는데 3일 만에 중급 슬로프를 탈 수 있게 됐어요! 강사님이 정말 친절하고 체계적으로 알려주셔서 빠르게 실력이 늘었습니다. 다음 시즌에도 꼭 다시 올게요!</p>
+                        <div class="review-helpful">
+                            <button class="helpful-btn">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>도움이 됐어요</span>
+                                <strong>24</strong>
+                            </button>
                         </div>
                     </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"아이와 함께 수강했는데 키즈 전문 강사님이 계셔서 너무 좋았어요. 안전하게 재미있게 배울 수 있어서 아이도 스키를 좋아하게 됐네요! 가족 모두 만족합니다."</p>
-                    <div class="review-date">2024.12.02</div>
-                </div>
 
-                <!-- Review 3 -->
-                <div class="review-card reveal-element">
-                    <div class="review-header">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="이준혁" class="review-avatar">
-                        <div class="review-info">
-                            <h4>이준혁</h4>
-                            <span>카빙 마스터 수강</span>
+                    <!-- Review 2 -->
+                    <div class="review-card-new">
+                        <div class="review-card-header">
+                            <div class="review-user">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="김태호" class="review-avatar-new">
+                                <div class="review-user-info">
+                                    <h4>김태호</h4>
+                                    <span class="review-date">2024.12.02</span>
+                                </div>
+                            </div>
+                            <div class="review-rating-new">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-tags">
+                            <span class="review-tag">그룹 2:1</span>
+                            <span class="review-tag">가족 레슨</span>
+                        </div>
+                        <p class="review-text-new">아이와 함께 수강했는데 키즈 전문 강사님이 계셔서 너무 좋았어요. 안전하게 재미있게 배울 수 있어서 아이도 스키를 좋아하게 됐네요! 가족 모두 만족합니다.</p>
+                        <div class="review-helpful">
+                            <button class="helpful-btn">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>도움이 됐어요</span>
+                                <strong>18</strong>
+                            </button>
                         </div>
                     </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"카빙 기술을 제대로 배우고 싶어서 신청했는데, 영상 분석까지 해주시면서 세세하게 교정해주셔서 실력이 확 늘었습니다. 강추! 상급자분들께도 추천드립니다."</p>
-                    <div class="review-date">2024.11.28</div>
-                </div>
 
-                <!-- Review 4 -->
-                <div class="review-card reveal-element">
-                    <div class="review-header">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="박소연" class="review-avatar">
-                        <div class="review-info">
-                            <h4>박소연</h4>
-                            <span>스노우보드 기초 수강</span>
+                    <!-- Review 3 -->
+                    <div class="review-card-new">
+                        <div class="review-card-header">
+                            <div class="review-user">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="이준혁" class="review-avatar-new">
+                                <div class="review-user-info">
+                                    <h4>이준혁</h4>
+                                    <span class="review-date">2024.11.28</span>
+                                </div>
+                            </div>
+                            <div class="review-rating-new">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-tags">
+                            <span class="review-tag">프리미엄 1:1</span>
+                            <span class="review-tag">카빙 마스터</span>
+                        </div>
+                        <p class="review-text-new">카빙 기술을 제대로 배우고 싶어서 신청했는데, 영상 분석까지 해주시면서 세세하게 교정해주셔서 실력이 확 늘었습니다. 강추! 상급자분들께도 추천드립니다.</p>
+                        <div class="review-helpful">
+                            <button class="helpful-btn">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>도움이 됐어요</span>
+                                <strong>31</strong>
+                            </button>
                         </div>
                     </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"스키만 타다가 보드에 도전했는데, 처음이라 걱정했지만 강사님께서 기초부터 차근차근 알려주셔서 하루만에 연속턴까지 성공했어요! 정말 감사합니다."</p>
-                    <div class="review-date">2024.11.25</div>
-                </div>
 
-                <!-- Review 5 -->
-                <div class="review-card reveal-element">
-                    <div class="review-header">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" alt="최민준" class="review-avatar">
-                        <div class="review-info">
-                            <h4>최민준</h4>
-                            <span>스키 중급반 수강</span>
+                    <!-- Review 4 -->
+                    <div class="review-card-new">
+                        <div class="review-card-header">
+                            <div class="review-user">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="박소연" class="review-avatar-new">
+                                <div class="review-user-info">
+                                    <h4>박소연</h4>
+                                    <span class="review-date">2024.11.25</span>
+                                </div>
+                            </div>
+                            <div class="review-rating-new">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-tags">
+                            <span class="review-tag">그룹 중급반</span>
+                            <span class="review-tag">스노우보드</span>
+                        </div>
+                        <p class="review-text-new">스키만 타다가 보드에 도전했는데, 처음이라 걱정했지만 강사님께서 기초부터 차근차근 알려주셔서 하루만에 연속턴까지 성공했어요! 정말 감사합니다.</p>
+                        <div class="review-helpful">
+                            <button class="helpful-btn">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>도움이 됐어요</span>
+                                <strong>15</strong>
+                            </button>
                         </div>
                     </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="review-text">"혼자 타면서 잘못된 습관이 많았는데 강사님이 하나하나 교정해주셔서 완전 다른 사람처럼 탈 수 있게 됐어요. 장비 렌탈도 최신 장비라 너무 좋았습니다."</p>
-                    <div class="review-date">2024.11.20</div>
-                </div>
 
-                <!-- Review 6 -->
-                <div class="review-card reveal-element">
-                    <div class="review-header">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="한지은" class="review-avatar">
-                        <div class="review-info">
-                            <h4>한지은</h4>
-                            <span>스키 입문반 수강</span>
+                    <!-- Review 5 -->
+                    <div class="review-card-new">
+                        <div class="review-card-header">
+                            <div class="review-user">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" alt="최민준" class="review-avatar-new">
+                                <div class="review-user-info">
+                                    <h4>최민준</h4>
+                                    <span class="review-date">2024.11.20</span>
+                                </div>
+                            </div>
+                            <div class="review-rating-new">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <div class="review-tags">
+                            <span class="review-tag">그룹 3:1</span>
+                            <span class="review-tag">스키 중급반</span>
+                        </div>
+                        <p class="review-text-new">혼자 타면서 잘못된 습관이 많았는데 강사님이 하나하나 교정해주셔서 완전 다른 사람처럼 탈 수 있게 됐어요. 장비 렌탈도 최신 장비라 너무 좋았습니다.</p>
+                        <div class="review-helpful">
+                            <button class="helpful-btn">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>도움이 됐어요</span>
+                                <strong>12</strong>
+                            </button>
                         </div>
                     </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"회사 단체로 왔는데 그룹레슨임에도 불구하고 개인 맞춤으로 지도해주셔서 모두가 만족했어요. 다음에 또 단체로 예약할게요! 직원들이 다들 재방문 원해요."</p>
-                    <div class="review-date">2024.11.15</div>
-                </div>
 
-                <!-- Review 7 -->
-                <div class="review-card reveal-element">
-                    <div class="review-header">
-                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100" alt="송현우" class="review-avatar">
-                        <div class="review-info">
-                            <h4>송현우</h4>
-                            <span>보드 프리스타일 수강</span>
+                    <!-- Review 6 -->
+                    <div class="review-card-new">
+                        <div class="review-card-header">
+                            <div class="review-user">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="윤서영" class="review-avatar-new">
+                                <div class="review-user-info">
+                                    <h4>윤서영</h4>
+                                    <span class="review-date">2024.11.05</span>
+                                </div>
+                            </div>
+                            <div class="review-rating-new">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-tags">
+                            <span class="review-tag">프리미엄 1:1</span>
+                            <span class="review-tag">키즈 스키반</span>
+                        </div>
+                        <p class="review-text-new">7살 아이가 처음 스키를 탔는데 선생님께서 놀이처럼 재미있게 가르쳐주셔서 아이가 스키를 무서워하지 않고 즐겁게 배웠어요. 이제 스키장 가자고 조르네요 ㅎㅎ</p>
+                        <div class="review-helpful">
+                            <button class="helpful-btn">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>도움이 됐어요</span>
+                                <strong>28</strong>
+                            </button>
                         </div>
                     </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"점프랑 트릭을 배우고 싶어서 왔는데 안전하게 단계별로 가르쳐주셔서 큰 부상 없이 배울 수 있었어요. 파크 예절도 배우고 정말 유익한 시간이었습니다!"</p>
-                    <div class="review-date">2024.11.10</div>
-                </div>
-
-                <!-- Review 8 -->
-                <div class="review-card reveal-element">
-                    <div class="review-header">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="윤서영" class="review-avatar">
-                        <div class="review-info">
-                            <h4>윤서영</h4>
-                            <span>키즈 스키반 (자녀)</span>
-                        </div>
-                    </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"7살 아이가 처음 스키를 탔는데 선생님께서 놀이처럼 재미있게 가르쳐주셔서 아이가 스키를 무서워하지 않고 즐겁게 배웠어요. 이제 스키장 가자고 조르네요 ㅎㅎ"</p>
-                    <div class="review-date">2024.11.05</div>
-                </div>
-
-                <!-- Review 9 -->
-                <div class="review-card reveal-element">
-                    <div class="review-header">
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100" alt="정우성" class="review-avatar">
-                        <div class="review-info">
-                            <h4>정우성</h4>
-                            <span>스키 상급반 수강</span>
-                        </div>
-                    </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"10년 넘게 탔는데도 배울 게 있더라구요. 숏턴 기술을 완전히 새롭게 배웠고, 모글도 도전할 수 있게 됐습니다. 상급자분들도 꼭 한번 받아보세요!"</p>
-                    <div class="review-date">2024.10.30</div>
                 </div>
             </div>
 
             <!-- CTA -->
             <div style="text-align: center; margin-top: 60px;">
-                <p style="font-size: 18px; color: var(--gray); margin-bottom: 20px;">여러분도 TOP SKI SCHOOLS와 함께 스키의 즐거움을 느껴보세요!</p>
-                <a href="booking.html" class="btn btn-primary btn-large">
-                    <span>레슨 예약하기</span>
-                    <i class="fas fa-arrow-right"></i>
+                <p style="font-size: 18px; color: var(--gray); margin-bottom: 20px;">여러분도 골든스키스쿨과 함께 스키의 즐거움을 느껴보세요!</p>
+                <a href="tel:010-1234-5678" class="btn btn-primary btn-large">
+                    <i class="fas fa-phone"></i>
+                    <span>전화로 예약하기</span>
                 </a>
             </div>
         </div>
@@ -258,9 +504,9 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <span class="logo-text">TOP<span class="accent">SKI</span></span>
+                        <span class="logo-text">골든<span class="accent">스키</span>스쿨</span>
                     </a>
-                    <p>최고의 강사진과 함께하는 프리미엄 스키 & 스노우보드 강습. 초보자부터 상급자까지, 모든 레벨에 맞는 맞춤 교육을 제공합니다.</p>
+                    <p>지산리조트 스키강습 골든스키스쿨. 최고의 강사진과 함께하는 프리미엄 스키 & 스노우보드 강습. 초보자부터 상급자까지, 모든 레벨에 맞는 맞춤 교육을 제공합니다.</p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
@@ -299,11 +545,11 @@
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
-                            <span>info@topskischools.com</span>
+                            <span>info@goldenskischool.com</span>
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>강원도 평창군 대관령면<br>스키장길 123</span>
+                            <span>경기도 이천시 마장면<br>지산리조트</span>
                         </li>
                         <li>
                             <i class="fas fa-clock"></i>
@@ -313,7 +559,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 TOP SKI SCHOOLS. All rights reserved.</p>
+                <p>&copy; 2024 골든스키스쿨. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="#">개인정보처리방침</a>
                     <a href="#">이용약관</a>

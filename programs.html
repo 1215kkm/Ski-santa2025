@@ -3,28 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프로그램 - TOP SKI SCHOOLS</title>
+    <title>강습 상품 - 지산리조트 스키강습 골든스키스쿨</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Pricing Table Styles */
+        .pricing-table-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        .pricing-table-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .pricing-table th,
+        .pricing-table td {
+            padding: 18px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .pricing-table thead {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        .pricing-table thead th {
+            font-weight: 700;
+            font-size: 16px;
+            border-bottom: none;
+        }
+        .pricing-table tbody tr:hover {
+            background: rgba(255, 59, 48, 0.05);
+        }
+        .pricing-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .pricing-table .time-col {
+            font-weight: 700;
+            color: var(--dark);
+            background: rgba(255, 59, 48, 0.08);
+        }
+        .pricing-table .price {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        .pass-info {
+            margin-top: 30px;
+            padding: 25px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary);
+        }
+        .pass-info h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .pass-info ul {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .pass-info li {
+            color: var(--gray);
+            font-size: 15px;
+        }
+        .pass-info li strong {
+            color: var(--dark);
+        }
+        @media (max-width: 768px) {
+            .pricing-table th,
+            .pricing-table td {
+                padding: 12px 8px;
+                font-size: 14px;
+            }
+            .pass-info ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="loader">
-            <div class="ski-icon">⛷️</div>
-            <span>LOADING</span>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar scrolled">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <span class="logo-text">TOP<span class="accent">SKI</span></span>
+                <span class="logo-text">골든<span class="accent">스키</span>스쿨</span>
             </a>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">홈</a></li>
                 <li><a href="programs.html" class="nav-link active">강습 상품</a></li>
                 <li><a href="gallery.html" class="nav-link">강습 갤러리</a></li>
                 <li><a href="booking.html" class="nav-link">예약하기</a></li>
@@ -33,7 +108,7 @@
                 <li><a href="faq.html" class="nav-link">자주묻는질문</a></li>
                 <li><a href="notice.html" class="nav-link">공지</a></li>
             </ul>
-            <a href="booking.html" class="nav-cta">지금 예약</a>
+            <a href="tel:010-1234-5678" class="nav-cta"><i class="fas fa-phone"></i> 전화로 예약하기</a>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -52,17 +127,62 @@
         <div class="diagonal-bottom"></div>
     </section>
 
+    <!-- Pricing Table Section -->
+    <section class="pricing-table-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PRICE</span>
+                <h2 class="section-title">강습 요금표</h2>
+            </div>
+            <div class="pricing-table-wrapper">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>시간</th>
+                            <th>1:1 (1인)</th>
+                            <th>2:1 (2인)</th>
+                            <th>3:1 (3인)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-col">2시간</td>
+                            <td class="price">110,000원</td>
+                            <td class="price">140,000원</td>
+                            <td class="price">180,000원</td>
+                        </tr>
+                        <tr>
+                            <td class="time-col">3시간</td>
+                            <td class="price">150,000원</td>
+                            <td class="price">190,000원</td>
+                            <td class="price">240,000원</td>
+                        </tr>
+                        <tr>
+                            <td class="time-col">4시간</td>
+                            <td class="price">190,000원</td>
+                            <td class="price">240,000원</td>
+                            <td class="price">285,000원</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pass-info">
+                    <h4><i class="fas fa-ticket-alt"></i> 패찰비 (리프트권) 안내</h4>
+                    <ul>
+                        <li><strong>2시간:</strong> 30,000원</li>
+                        <li><strong>3시간:</strong> 40,000원</li>
+                        <li><strong>4시간:</strong> 50,000원</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Programs Section -->
     <section class="programs-section">
         <div class="container">
-            <!-- Filter Buttons -->
-            <div class="programs-filter">
-                <button class="filter-btn active">전체</button>
-                <button class="filter-btn">스키</button>
-                <button class="filter-btn">스노우보드</button>
-                <button class="filter-btn">초급</button>
-                <button class="filter-btn">중급</button>
-                <button class="filter-btn">상급</button>
+            <div class="section-header">
+                <span class="section-tag">PROGRAMS</span>
+                <h2 class="section-title">강습 프로그램</h2>
             </div>
 
             <!-- Programs Grid -->
@@ -85,17 +205,9 @@
                             <li><i class="fas fa-check"></i> 안전하게 넘어지고 일어서기</li>
                             <li><i class="fas fa-check"></i> 기초 턴 연습</li>
                         </ul>
-                        <div class="program-meta">
-                            <span><i class="fas fa-clock"></i> 2시간</span>
-                            <span><i class="fas fa-users"></i> 1:1 ~ 1:4</span>
-                        </div>
-                        <div class="program-price">
-                            <span class="price">80,000</span>
-                            <span>원~</span>
-                        </div>
-                        <a href="booking.html" class="btn btn-primary btn-small">
-                            <span>예약하기</span>
-                            <i class="fas fa-arrow-right"></i>
+                        <a href="tel:010-1234-5678" class="btn btn-primary btn-small">
+                            <span>전화 예약</span>
+                            <i class="fas fa-phone"></i>
                         </a>
                     </div>
                 </div>
@@ -115,17 +227,9 @@
                             <li><i class="fas fa-check"></i> 속도 컨트롤</li>
                             <li><i class="fas fa-check"></i> 다양한 설질 대응</li>
                         </ul>
-                        <div class="program-meta">
-                            <span><i class="fas fa-clock"></i> 2시간</span>
-                            <span><i class="fas fa-users"></i> 1:1 ~ 1:3</span>
-                        </div>
-                        <div class="program-price">
-                            <span class="price">100,000</span>
-                            <span>원~</span>
-                        </div>
-                        <a href="booking.html" class="btn btn-primary btn-small">
-                            <span>예약하기</span>
-                            <i class="fas fa-arrow-right"></i>
+                        <a href="tel:010-1234-5678" class="btn btn-primary btn-small">
+                            <span>전화 예약</span>
+                            <i class="fas fa-phone"></i>
                         </a>
                     </div>
                 </div>
@@ -148,17 +252,9 @@
                             <li><i class="fas fa-check"></i> 고급 기술 교정</li>
                             <li><i class="fas fa-check"></i> 상급 슬로프 공략</li>
                         </ul>
-                        <div class="program-meta">
-                            <span><i class="fas fa-clock"></i> 2시간</span>
-                            <span><i class="fas fa-users"></i> 1:1 ~ 1:2</span>
-                        </div>
-                        <div class="program-price">
-                            <span class="price">150,000</span>
-                            <span>원~</span>
-                        </div>
-                        <a href="booking.html" class="btn btn-primary btn-small">
-                            <span>예약하기</span>
-                            <i class="fas fa-arrow-right"></i>
+                        <a href="tel:010-1234-5678" class="btn btn-primary btn-small">
+                            <span>전화 예약</span>
+                            <i class="fas fa-phone"></i>
                         </a>
                     </div>
                 </div>
@@ -178,17 +274,9 @@
                             <li><i class="fas fa-check"></i> 사이드 슬립</li>
                             <li><i class="fas fa-check"></i> 기초 턴 입문</li>
                         </ul>
-                        <div class="program-meta">
-                            <span><i class="fas fa-clock"></i> 2시간</span>
-                            <span><i class="fas fa-users"></i> 1:1 ~ 1:4</span>
-                        </div>
-                        <div class="program-price">
-                            <span class="price">80,000</span>
-                            <span>원~</span>
-                        </div>
-                        <a href="booking.html" class="btn btn-primary btn-small">
-                            <span>예약하기</span>
-                            <i class="fas fa-arrow-right"></i>
+                        <a href="tel:010-1234-5678" class="btn btn-primary btn-small">
+                            <span>전화 예약</span>
+                            <i class="fas fa-phone"></i>
                         </a>
                     </div>
                 </div>
@@ -208,52 +296,14 @@
                             <li><i class="fas fa-check"></i> 스위치 라이딩 기초</li>
                             <li><i class="fas fa-check"></i> 속도 & 방향 컨트롤</li>
                         </ul>
-                        <div class="program-meta">
-                            <span><i class="fas fa-clock"></i> 2시간</span>
-                            <span><i class="fas fa-users"></i> 1:1 ~ 1:3</span>
-                        </div>
-                        <div class="program-price">
-                            <span class="price">100,000</span>
-                            <span>원~</span>
-                        </div>
-                        <a href="booking.html" class="btn btn-primary btn-small">
-                            <span>예약하기</span>
-                            <i class="fas fa-arrow-right"></i>
+                        <a href="tel:010-1234-5678" class="btn btn-primary btn-small">
+                            <span>전화 예약</span>
+                            <i class="fas fa-phone"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Program 6 -->
-                <div class="program-card-full" data-category="snowboard advanced">
-                    <div class="program-image">
-                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600" alt="프리스타일 보드">
-                    </div>
-                    <div class="program-content">
-                        <span class="program-level advanced">상급</span>
-                        <h3>프리스타일 보드</h3>
-                        <p>트릭과 점프를 배우고 싶은 상급자를 위한 과정입니다. 파크 라이딩의 기초부터 고급 트릭까지 진행합니다.</p>
-                        <ul class="program-features">
-                            <li><i class="fas fa-check"></i> 올리/놀리 기본기</li>
-                            <li><i class="fas fa-check"></i> 박스 & 레일 기초</li>
-                            <li><i class="fas fa-check"></i> 점프 & 착지 기술</li>
-                            <li><i class="fas fa-check"></i> 기본 그랩 트릭</li>
-                        </ul>
-                        <div class="program-meta">
-                            <span><i class="fas fa-clock"></i> 2시간</span>
-                            <span><i class="fas fa-users"></i> 1:1 ~ 1:2</span>
-                        </div>
-                        <div class="program-price">
-                            <span class="price">150,000</span>
-                            <span>원~</span>
-                        </div>
-                        <a href="booking.html" class="btn btn-primary btn-small">
-                            <span>예약하기</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Program 7 -->
                 <div class="program-card-full" data-category="ski kids">
                     <div class="program-image">
                         <img src="https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?w=600" alt="키즈 스키">
@@ -271,80 +321,9 @@
                             <li><i class="fas fa-check"></i> 안전 중심 커리큘럼</li>
                             <li><i class="fas fa-check"></i> 부모 동반 가능</li>
                         </ul>
-                        <div class="program-meta">
-                            <span><i class="fas fa-clock"></i> 1.5시간</span>
-                            <span><i class="fas fa-users"></i> 1:1 ~ 1:3</span>
-                        </div>
-                        <div class="program-price">
-                            <span class="price">70,000</span>
-                            <span>원~</span>
-                        </div>
-                        <a href="booking.html" class="btn btn-primary btn-small">
-                            <span>예약하기</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Program 8 -->
-                <div class="program-card-full" data-category="package">
-                    <div class="program-image">
-                        <img src="https://images.unsplash.com/photo-1520443240718-fce21901db79?w=600" alt="가족 패키지">
-                    </div>
-                    <div class="program-content">
-                        <span class="program-level intermediate">패키지</span>
-                        <h3>가족 패키지</h3>
-                        <p>온 가족이 함께 즐기는 스키 레슨입니다. 레벨별로 분리 수업 후 가족 함께 슬로프를 즐깁니다.</p>
-                        <ul class="program-features">
-                            <li><i class="fas fa-check"></i> 가족 맞춤 커리큘럼</li>
-                            <li><i class="fas fa-check"></i> 레벨별 분리 수업</li>
-                            <li><i class="fas fa-check"></i> 가족 합동 시간</li>
-                            <li><i class="fas fa-check"></i> 기념 사진 촬영</li>
-                        </ul>
-                        <div class="program-meta">
-                            <span><i class="fas fa-clock"></i> 3시간</span>
-                            <span><i class="fas fa-users"></i> 가족 단위</span>
-                        </div>
-                        <div class="program-price">
-                            <span class="price">250,000</span>
-                            <span>원~</span>
-                        </div>
-                        <a href="booking.html" class="btn btn-primary btn-small">
-                            <span>예약하기</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Program 9 -->
-                <div class="program-card-full" data-category="package">
-                    <div class="program-image">
-                        <img src="https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=600" alt="시즌권 패키지">
-                        <div class="program-overlay">
-                            <span class="program-tag">BEST VALUE</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <span class="program-level advanced">시즌</span>
-                        <h3>시즌 정기권</h3>
-                        <p>한 시즌 동안 체계적으로 실력을 키우고 싶은 분들을 위한 정기 레슨 패키지입니다.</p>
-                        <ul class="program-features">
-                            <li><i class="fas fa-check"></i> 주 1회 정기 레슨</li>
-                            <li><i class="fas fa-check"></i> 개인 성장 로드맵</li>
-                            <li><i class="fas fa-check"></i> 월간 영상 분석</li>
-                            <li><i class="fas fa-check"></i> 장비 무료 대여</li>
-                        </ul>
-                        <div class="program-meta">
-                            <span><i class="fas fa-clock"></i> 시즌권</span>
-                            <span><i class="fas fa-users"></i> 1:1</span>
-                        </div>
-                        <div class="program-price">
-                            <span class="price">1,500,000</span>
-                            <span>원~</span>
-                        </div>
-                        <a href="booking.html" class="btn btn-primary btn-small">
-                            <span>예약하기</span>
-                            <i class="fas fa-arrow-right"></i>
+                        <a href="tel:010-1234-5678" class="btn btn-primary btn-small">
+                            <span>전화 예약</span>
+                            <i class="fas fa-phone"></i>
                         </a>
                     </div>
                 </div>
@@ -356,10 +335,10 @@
     <section class="parallax-banner">
         <div class="parallax-content">
             <h2>어떤 프로그램이 맞을지 고민되시나요?</h2>
-            <p>무료 상담을 통해 <strong>나에게 맞는 프로그램</strong>을 추천받으세요</p>
-            <a href="booking.html" class="btn btn-white btn-large">
-                <span>무료 상담 신청</span>
-                <i class="fas fa-arrow-right"></i>
+            <p>전화 상담을 통해 <strong>나에게 맞는 프로그램</strong>을 추천받으세요</p>
+            <a href="tel:010-1234-5678" class="btn btn-white btn-large">
+                <i class="fas fa-phone"></i>
+                <span>전화 상담하기</span>
             </a>
         </div>
         <div class="diagonal-top"></div>
@@ -372,9 +351,9 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <span class="logo-text">TOP<span class="accent">SKI</span></span>
+                        <span class="logo-text">골든<span class="accent">스키</span>스쿨</span>
                     </a>
-                    <p>최고의 강사진과 함께하는 프리미엄 스키 & 스노우보드 강습. 초보자부터 상급자까지, 모든 레벨에 맞는 맞춤 교육을 제공합니다.</p>
+                    <p>지산리조트 스키강습 골든스키스쿨. 최고의 강사진과 함께하는 프리미엄 스키 & 스노우보드 강습. 초보자부터 상급자까지, 모든 레벨에 맞는 맞춤 교육을 제공합니다.</p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
@@ -385,11 +364,13 @@
                 <div class="footer-links">
                     <h4>바로가기</h4>
                     <ul>
-                        <li><a href="programs.html">프로그램</a></li>
-                        <li><a href="instructors.html">강사진</a></li>
-                        <li><a href="gallery.html">갤러리</a></li>
-                        <li><a href="booking.html">예약</a></li>
-                        <li><a href="contact.html">문의</a></li>
+                        <li><a href="programs.html">강습 상품</a></li>
+                        <li><a href="gallery.html">강습 갤러리</a></li>
+                        <li><a href="booking.html">예약하기</a></li>
+                        <li><a href="reviews.html">후기</a></li>
+                        <li><a href="rental.html">직영 렌탈샵</a></li>
+                        <li><a href="faq.html">자주묻는질문</a></li>
+                        <li><a href="notice.html">공지</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -411,11 +392,11 @@
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
-                            <span>info@topskischools.com</span>
+                            <span>info@goldenskischool.com</span>
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>강원도 평창군 대관령면<br>스키장길 123</span>
+                            <span>경기도 이천시 마장면<br>지산리조트</span>
                         </li>
                         <li>
                             <i class="fas fa-clock"></i>
@@ -425,7 +406,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 TOP SKI SCHOOLS. All rights reserved.</p>
+                <p>&copy; 2024 골든스키스쿨. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="#">개인정보처리방침</a>
                     <a href="#">이용약관</a>
