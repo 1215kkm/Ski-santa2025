@@ -380,16 +380,55 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Lightbox functionality
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryGrid = document.querySelector('.gallery-full-grid');
         const galleryItems = document.querySelectorAll('.gallery-item');
+
+        const categoryMap = {
+            '전체': 'all',
+            '스키 레슨': 'ski',
+            '스노우보드': 'snowboard',
+            '키즈': 'kids',
+            '풍경': 'landscape'
+        };
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = categoryMap[btn.textContent.trim()];
+
+                galleryItems.forEach(item => {
+                    const category = item.dataset.category;
+
+                    if (filterValue === 'all' || category === filterValue) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeIn 0.5s ease forwards';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox functionality
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxCaption = document.getElementById('lightbox-caption');
         let currentIndex = 0;
+        let visibleItems = [];
 
-        galleryItems.forEach((item, index) => {
+        function updateVisibleItems() {
+            visibleItems = Array.from(galleryItems).filter(item => item.style.display !== 'none');
+        }
+
+        galleryItems.forEach((item) => {
             item.addEventListener('click', () => {
-                currentIndex = index;
+                updateVisibleItems();
+                currentIndex = visibleItems.indexOf(item);
                 openLightbox(item);
             });
         });
@@ -409,10 +448,11 @@
         }
 
         function changeImage(direction) {
+            updateVisibleItems();
             currentIndex += direction;
-            if (currentIndex < 0) currentIndex = galleryItems.length - 1;
-            if (currentIndex >= galleryItems.length) currentIndex = 0;
-            openLightbox(galleryItems[currentIndex]);
+            if (currentIndex < 0) currentIndex = visibleItems.length - 1;
+            if (currentIndex >= visibleItems.length) currentIndex = 0;
+            openLightbox(visibleItems[currentIndex]);
         }
 
         // Close lightbox with Escape key
