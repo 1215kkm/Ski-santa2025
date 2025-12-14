@@ -196,6 +196,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+
+/* Centered Menu */
+.nav-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .logo-text {
@@ -213,7 +221,7 @@ img {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 35px;
 }
 
 .nav-link {
@@ -2260,10 +2268,29 @@ section {
 
 @keyframes subHeroZoom {
     0% {
-        transform: scale(1.15);
+        transform: scale(1.15) translateX(-3%);
     }
     100% {
-        transform: scale(1);
+        transform: scale(1) translateX(0);
+    }
+}
+
+/* Speedy Sub Hero Animation */
+.sub-hero-bg.speedy {
+    animation: subHeroSpeedy 12s ease-out forwards;
+}
+
+@keyframes subHeroSpeedy {
+    0% {
+        transform: scale(1.2) translateX(-5%);
+        filter: blur(2px);
+    }
+    20% {
+        filter: blur(0);
+    }
+    100% {
+        transform: scale(1) translateX(0);
+        filter: blur(0);
     }
 }
 
