@@ -79,6 +79,64 @@
         .pass-info li strong {
             color: var(--dark);
         }
+
+        /* Lesson Info Box - 포함/미포함/패찰 */
+        .lesson-info-box {
+            margin-top: 40px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .lesson-info-row {
+            display: flex;
+            align-items: stretch;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .lesson-info-row:last-child {
+            border-bottom: none;
+        }
+        .lesson-info-label {
+            min-width: 100px;
+            padding: 18px 20px;
+            background: #8B7355;
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .lesson-info-content {
+            flex: 1;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 15px;
+            background: var(--white);
+        }
+        .lesson-info-content.price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+        .price-item {
+            padding: 8px 15px;
+            background: rgba(139, 115, 85, 0.08);
+            border-radius: var(--radius-sm);
+        }
+        .price-item .time {
+            font-weight: 600;
+            color: #8B7355;
+        }
+        .price-item .amount {
+            color: var(--dark);
+        }
+
         @media (max-width: 768px) {
             .pricing-table th,
             .pricing-table td {
@@ -87,6 +145,19 @@
             }
             .pass-info ul {
                 flex-direction: column;
+                gap: 10px;
+            }
+            .lesson-info-label {
+                min-width: 80px;
+                font-size: 13px;
+                padding: 15px 10px;
+            }
+            .lesson-info-content {
+                padding: 15px;
+                font-size: 14px;
+            }
+            .lesson-info-content.price-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
             }
         }
@@ -172,6 +243,26 @@
                         <li><strong>3시간:</strong> 40,000원</li>
                         <li><strong>4시간:</strong> 50,000원</li>
                     </ul>
+                </div>
+
+                <!-- 포함/미포함/강습패찰 정보 박스 -->
+                <div class="lesson-info-box">
+                    <div class="lesson-info-row">
+                        <div class="lesson-info-label">포함</div>
+                        <div class="lesson-info-content">헬멧 + 강습보험</div>
+                    </div>
+                    <div class="lesson-info-row">
+                        <div class="lesson-info-label">미포함</div>
+                        <div class="lesson-info-content">장비 / 의류 / 리프트권 / 강습패찰</div>
+                    </div>
+                    <div class="lesson-info-row">
+                        <div class="lesson-info-label">강습패찰</div>
+                        <div class="lesson-info-content price-grid">
+                            <div class="price-item"><span class="time">2시간</span> - <span class="amount">30,000</span></div>
+                            <div class="price-item"><span class="time">3시간</span> - <span class="amount">40,000</span></div>
+                            <div class="price-item"><span class="time">4시간</span> - <span class="amount">50,000</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
